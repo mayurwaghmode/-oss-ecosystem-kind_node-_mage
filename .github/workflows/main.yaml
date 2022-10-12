@@ -41,12 +41,6 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ github.token }}
 
-      - name: Set variables
-        run: |
-          KIND_VERSION=$(cat KIND_VERSION)
-          BASE_IMAGE=$(cat BASE_IMAGE)
-          echo "KIND_VERSION=$KIND_VERSION" >> $GITHUB_ENV
-          echo "BASE_IMAGE=$BASE_IMAGE" >> $GITHUB_ENV
       - name: Install kind
         run: |
           curl -Lo ./kind https://kind.sigs.k8s.io/dl/${{ env.KIND_VERSION }}/kind-linux-amd64
